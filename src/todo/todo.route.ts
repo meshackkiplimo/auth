@@ -1,4 +1,4 @@
-import { isAuthenticated } from "../middleware/bearAuth";
+import {  } from "../middleware/bearAuth";
 import { createTodoController, getAllTodosController, getTodoByIdController, updateTodoController } from "./todo.controller";
 
 import { Express } from "express";
@@ -7,7 +7,7 @@ import { Express } from "express";
 const todo = (app: Express) => {
 
     app.route("/todo").post(
-        isAuthenticated,
+       
         async (req, res, next) => {
             try {
                 await createTodoController(req, res);
@@ -17,7 +17,7 @@ const todo = (app: Express) => {
         }
     )
     app.route("/todos").get(
-        isAuthenticated,
+     
         async (req, res, next) => {
             try {
 

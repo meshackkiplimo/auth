@@ -1,12 +1,13 @@
 
 import { relations } from "drizzle-orm";
 import { desc } from "drizzle-orm";
-import { timestamp } from "drizzle-orm/pg-core";
+import { pgEnum, timestamp } from "drizzle-orm/pg-core";
 import { boolean } from "drizzle-orm/pg-core";
 import { integer } from "drizzle-orm/pg-core";
 import { pgTable,serial,varchar } from "drizzle-orm/pg-core";
 
 
+export const RoleEnum =pgEnum ("role",["admin","user"] );
 
 export const UsersTable = pgTable("users",{
     id: serial("id").primaryKey(),
@@ -14,6 +15,7 @@ export const UsersTable = pgTable("users",{
     last_name:varchar("last_name").notNull(),
     email:varchar("email").notNull().unique(),
     password:varchar("password").notNull(),
+    role: RoleEnum("role").default("user"),
     
 })
 
@@ -45,3 +47,4 @@ export type TIUser = typeof UsersTable.$inferInsert;
 export type TsUser = typeof UsersTable.$inferSelect;
 export type TITodo = typeof TodoTable.$inferInsert;
 export type TSTodo = typeof TodoTable.$inferSelect;
+export type role= string | "admin" | "user";

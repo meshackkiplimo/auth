@@ -8,6 +8,13 @@
       "when": 1748330339806,
       "tag": "0000_happy_cassandra_nova",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1748427475030,
+      "tag": "0001_curved_pretty_boy",
+      "breakpoints": true
     }
   ]
 }

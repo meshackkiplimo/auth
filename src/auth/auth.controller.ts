@@ -44,6 +44,7 @@ export const userLoginController = async (req: Request, res: Response) => {
         user_id: userExist.id,
         first_name: userExist.name,
         last_name: userExist.last_name,
+        role:userExist.role,
         exp: Math.floor(Date.now() / 1000) + (60 * 60), // Token expires in 1 hour
         
     }
