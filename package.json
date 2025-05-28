@@ -1,0 +1,36 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx --watch src/index.ts",
+    "build": "tsc ",
+    "generate": "drizzle-kit generate",
+    "migrate": "tsx src/drizzle/migrate.ts",
+    "seed": "tsx src/Drizzle/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "@types/pg": "^8.15.2",
+    "drizzle-kit": "^0.31.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.9",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.0"
+  }
+}
