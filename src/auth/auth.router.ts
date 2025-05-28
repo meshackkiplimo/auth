@@ -1,6 +1,7 @@
 import { Express } from "express";
 
 import { createUserController, userLoginController } from "./auth.controller";
+import { checkRoles } from "../middleware/bearAuth";
 
 export const user = (app: Express) => {
     app.route("/auth/register").post(
@@ -17,6 +18,8 @@ export const user = (app: Express) => {
         }
     )
     app.route("/auth/login").post(
+        
+        
         async (req, res,next) => {
             try {
                 await userLoginController(req, res);

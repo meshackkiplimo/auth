@@ -1,4 +1,4 @@
-import {  } from "../middleware/bearAuth";
+import { checkRoles, isAuthenticated, userRoleAuth } from "../middleware/bearAuth";
 import { createTodoController, getAllTodosController, getTodoByIdController, updateTodoController } from "./todo.controller";
 
 import { Express } from "express";
@@ -7,8 +7,9 @@ import { Express } from "express";
 const todo = (app: Express) => {
 
     app.route("/todo").post(
-       
-        async (req, res, next) => {
+        checkRoles("both"),
+        isAuthenticated,
+      async (req, res, next) => {
             try {
                 await createTodoController(req, res);
             } catch (error) {
@@ -29,6 +30,8 @@ const todo = (app: Express) => {
     )
 
     app.route("/todo/:id").get(
+        checkRoles("user"),
+        isAuthenticated,
         async (req, res, next) => {
             try {
                 await getTodoByIdController(req, res);
