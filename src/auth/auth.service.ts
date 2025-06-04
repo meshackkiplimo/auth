@@ -9,6 +9,15 @@ export const createUserService = async (user:TIUser) => {
     return newUser[0];
 }
 
+export const verifyUserService = async (email: string, verificationCode: string) => {
+    await db.update(UsersTable)
+        .set({
+            is_verified: true,
+            verification_code: null // Clear the verification code after successful verification
+        })
+        .where(sql`${UsersTable.email} = ${email} AND ${UsersTable.verification_code} = ${verificationCode}`);
+}
+
 export const userLoginService = async (user: TIUser) => {
     const { email } = user;
 
@@ -21,5 +30,11 @@ export const userLoginService = async (user: TIUser) => {
             password: true,
             role: true
         }, where: sql`${UsersTable.email} = ${email}`
+    })
+}
+
+export const getUserByEmailService = async (email: string) => {
+    return await db.query.UsersTable.findFirst({
+    where: sql`${UsersTable.email} = ${email}`
     })
 }

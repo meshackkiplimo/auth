@@ -17,6 +17,7 @@ export const UsersTable = pgTable("users",{
     password:varchar("password").notNull(),
     role: RoleEnum("role").default("user"),
     
+    
 })
 
 export const TodoTable = pgTable("todos",{
