@@ -1,20 +1,24 @@
 {
-  "version": "7",
-  "dialect": "postgresql",
+  "version": "5",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1748330339806,
-      "tag": "0000_happy_cassandra_nova",
-      "breakpoints": true
+      "version": "5",
+      "when": 1708561929448,
+      "tag": "0000_happy_cassandra_nova"
     },
     {
       "idx": 1,
-      "version": "7",
-      "when": 1748427475030,
-      "tag": "0001_curved_pretty_boy",
-      "breakpoints": true
+      "version": "5",
+      "when": 1708562142309,
+      "tag": "0001_curved_pretty_boy"
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1709932524000,
+      "tag": "0002_add_verification_fields"
     }
   ]
 }
