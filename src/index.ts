@@ -7,17 +7,18 @@ dotenv.config();
 
 const initializeApp =()=>{
  const app = express();
+ app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    // credentials: true,
+}));
+
  app.use(express.json());
 
 user(app);
 todo(app);
 //cors to link with frontend
 
-app.use(cors({
-    origin: 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    // credentials: true,
-}));
 
 
 
